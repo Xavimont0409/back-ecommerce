@@ -16,7 +16,8 @@ const imageGet = async (req, res) => {
 
 const imagePost = async (req, res) => {
   try {
-    res.status(200).json(await addImage())
+    const { route, ProductId } = req.body
+    res.status(200).json(await addImage(route, ProductId))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -25,7 +26,8 @@ const imagePost = async (req, res) => {
 
 const imagePut = async (req, res) => {
   try {
-    res.status(200).json(await updateImage())
+    const { id, route, ProductId } = req.body
+    res.status(200).json(await updateImage(id, route, ProductId))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -34,7 +36,8 @@ const imagePut = async (req, res) => {
 
 const imageDelete = async (req, res) => {
   try {
-    res.status(200).json(await deleteImage())
+    const { id } = req.body
+    res.status(200).json(await deleteImage(id))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

@@ -16,7 +16,8 @@ const clientGet = async (req, res) => {
 
 const clientPost = async (req, res) => {
   try {
-    res.status(200).json(await addClient())
+    const { name, lastName, email, password } = req.body
+    res.status(200).json(await addClient(name, lastName, email, password))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -25,7 +26,8 @@ const clientPost = async (req, res) => {
 
 const clientPut = async (req, res) => {
   try {
-    res.status(200).json(await updateClient())
+    const { id, name, lastName, email, password } = req.body
+    res.status(200).json(await updateClient(id, name, lastName, email, password))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -34,7 +36,8 @@ const clientPut = async (req, res) => {
 
 const clientDelete = async (req, res) => {
   try {
-    res.status(200).json(await deleteClient())
+    const { id } = req.body
+    res.status(200).json(await deleteClient(id))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

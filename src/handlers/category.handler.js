@@ -16,7 +16,8 @@ const categoryGet = async(req, res) => {
 
 const categoryPost = async (req, res) => {
   try {
-    res.status(200).json(await addCategory())
+    const { name, description } = req.body
+    res.status(200).json(await addCategory(name, description))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -25,7 +26,8 @@ const categoryPost = async (req, res) => {
 
 const categoryPut = async (req, res) => {
   try {
-    res.status(200).json(await updateCategory())
+    const { id, name, description } = req.body
+    res.status(200).json(await updateCategory(id, name, description))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -34,7 +36,8 @@ const categoryPut = async (req, res) => {
 
 const categoryDelete = async (req, res) => {
   try {
-    res.status(200).json(await deleteCategory())
+    const { id } = req.body
+    res.status(200).json(await deleteCategory(id))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

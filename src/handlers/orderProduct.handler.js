@@ -16,7 +16,8 @@ const orderProductGet = async (req, res) => {
 
 const orderProductPost = async (req, res) => {
   try {
-    res.status(200).json(await addOrderProduct())
+    const { amount, OrderId, ProductId } = req.body
+    res.status(200).json(await addOrderProduct(amount, OrderId, ProductId))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -25,7 +26,8 @@ const orderProductPost = async (req, res) => {
 
 const orderProductPut = async (req, res) => {
   try {
-    res.status(200).json(await updateOrderProduct())
+    const { id, amount, OrderId, ProductId } = req.body
+    res.status(200).json(await updateOrderProduct(id, amount, OrderId, ProductId))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -34,7 +36,8 @@ const orderProductPut = async (req, res) => {
 
 const orderProductDelete = async (req, res) => {
   try {
-    res.status(200).json(await deleteOrderProduct())
+    const { id } = req.body
+    res.status(200).json(await deleteOrderProduct(id))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

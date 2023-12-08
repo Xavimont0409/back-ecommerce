@@ -8,11 +8,11 @@ const productRouter = require('./product.router')
 
 const router = Router()
 
-router.app('/category', categoryRouter)
-router.app('/client', clientRouter)
-router.app('/image', imageRouter)
-router.app('/order', orderRouter)
-router.app('/order_product', orderProductRouter)
-router.app('/product', productRouter)
+router.use('/category', categoryRouter)
+router.use('/client', clientRouter)
+router.use('/image', imageRouter)
+router.use('/order', orderRouter)
+router.use('/order_product', orderProductRouter)
+router.use('/product', productRouter)
 
 module.exports = router

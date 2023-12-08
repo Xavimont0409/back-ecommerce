@@ -20,7 +20,7 @@ const updateClient = async (id, name, lastName, email, password) => {
   const checkClient = await Client.findOne({ where: { email } })
 }
 
-const deleteClient = async () => {
+const deleteClient = async (id) => {
 
 }
 
