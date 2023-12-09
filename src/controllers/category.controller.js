@@ -29,7 +29,7 @@ const updateCategory = async (id, name, description) => {
 };
 
 const deleteCategory = async (id) => {
-  return await Category.delete({ where: { id } });
+  return await Category.destroy({ where: { id } });
 };
 
 module.exports = {

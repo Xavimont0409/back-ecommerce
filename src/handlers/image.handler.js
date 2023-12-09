@@ -26,7 +26,7 @@ const imagePost = async (req, res) => {
 
 const imagePut = async (req, res) => {
   try {
-    const { id, route, ProductId } = req.body
+    const { id, route } = req.body
     res.status(200).json(await updateImage(id, route, ProductId))
   } catch (error) {
     console.log(error)

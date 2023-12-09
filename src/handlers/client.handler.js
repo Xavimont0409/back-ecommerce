@@ -2,12 +2,23 @@ const {
   getClient,
   addClient,
   updateClient,
-  deleteClient
+  deleteClient,
+  getClientId
 } = require('../controllers/client.controller')
 
 const clientGet = async (req, res) => {
   try {
     res.status(200).json(await getClient())
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+const clientGetId = async (req, res) => {
+  try {
+    const { id } = req.query
+    res.status(200).json(await getClientId(id))
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -48,5 +59,6 @@ module.exports = {
   clientGet,
   clientPost,
   clientPut,
-  clientDelete
+  clientDelete,
+  clientGetId
 }

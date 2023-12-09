@@ -3,12 +3,14 @@ const {
 	clientGet,
   clientPost,
   clientPut,
-  clientDelete
+  clientDelete,
+  clientGetId
 } = require('../handlers/client.handler')
 
 const clientRouter = Router()
 
 clientRouter.get('/', clientGet)
+clientRouter.get('/id', clientGetId)
 clientRouter.post('/', clientPost)
 clientRouter.put('/', clientPut)
 clientRouter.delete('/', clientDelete)
